@@ -1,0 +1,4 @@
+Installation:
+	git clone git://github.com/freedimension/myvim.git ~/.vim
+	cp ~/.vimrc ~/.vimrc.old
+	ln -s ~/.vim/vimrc ~/.vimrc
