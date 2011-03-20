@@ -1,4 +1,10 @@
+" Pathogen for bundling vim plugins
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+" Whitespace display Toggling with LEADER+l 
 nmap <leader>l :set list!<CR>
+" Display characters for TAB and NL in list-mode
 set listchars=tab:>\	,eol:v
 
 set ai                  " auto indenting
