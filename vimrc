@@ -17,7 +17,6 @@ set history=1000        " keep some more lines of history
 set ruler               " show the cursor position
 syntax on               " syntax highlighting
 set hlsearch            " highlight the last searched term
-filetype plugin on      " use the file type plugins
  
 " When editing a file, always jump to the last cursor position
 if has("autocmd")
