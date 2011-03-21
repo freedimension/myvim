@@ -34,6 +34,10 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 " enable extended matching
 runtime macros/matchit.vim
+
+" Speeding up scrolling with Ctrl-e and Ctrl-y
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
  
 " When editing a file, always jump to the last cursor position
 if has("autocmd")
