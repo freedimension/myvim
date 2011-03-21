@@ -1,4 +1,13 @@
-Installation:
+INSTALL
 	git clone git://github.com/freedimension/myvim.git ~/.vim
 	cp ~/.vimrc ~/.vimrc.old
 	ln -s ~/.vim/vimrc ~/.vimrc
+
+ADDITIONAL TOOLS
+- par
+	For better reformatting of text.
+
+	Installation on OS X with Macports:
+	# sudo port install par
+	Installation on Ubuntu:
+	# sudo apt-get install par

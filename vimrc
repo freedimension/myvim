@@ -38,7 +38,11 @@ runtime macros/matchit.vim
 " Speeding up scrolling with Ctrl-e and Ctrl-y
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
- 
+
+if executable("par")
+  set formatprg=par\ -w78
+endif
+
 " When editing a file, always jump to the last cursor position
 if has("autocmd")
   filetype plugin indent on
