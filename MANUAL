@@ -6,3 +6,6 @@ SHORTCUTS
 ",l"   - Toggle "show whitespace"
 ",n"   - Toggle between line numbering and ruler
 "gqip" - Reformat a paragraph with the commandline tool 'par' (needs to be installed)
+
+"Ctrl-e" - Scroll three lines to the top
+"Ctrl-y" - Scroll three lines to the bottom
