@@ -25,6 +25,7 @@ set nonumber              " ... but not the line number gutter
 nmap <leader>n :set ruler! number!<CR>
 syntax on               " syntax highlighting
 set hlsearch            " highlight the last searched term
+set incsearch           " incremental highlighting (highlight on type)
 set wildmode=list:longest " extended wildcard selection
 set scrolloff=3         " helps keeping some context around the caret
 
