@@ -3,10 +3,11 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 " Set Leader character to comma
-let mapleader=","
+let mapleader="_"
 
 " Whitespace display Toggling with LEADER+l 
 nmap <leader>l :set list!<CR>
+
 " Display characters for TAB and NL in list-mode
 set listchars=tab:▸\ ,eol:¬,trail:.
 
@@ -25,9 +26,12 @@ nmap <leader>n :set ruler! number!<CR>
 
 nmap <leader>p :set paste!<CR>
 
-syntax on               " syntax highlighting
-set hlsearch            " highlight the last searched term
-set incsearch           " incremental highlighting (highlight on type)
+" Syntax and search highlighting
+syntax on
+set hlsearch
+set incsearch
+
+" Search behaviour
 set wildmode=list:longest " extended wildcard selection
 set scrolloff=3         " helps keeping some context around the caret
 
@@ -84,3 +88,17 @@ function! SummarizeTabs()
     echohl None
   endtry
 endfunction
+
+function! Preserve(command)
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  execute a:command
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
+nmap _= :call Preserve("normal gg=G")<CR>

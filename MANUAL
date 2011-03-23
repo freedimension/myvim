@@ -3,10 +3,13 @@ MANUAL
 
 SHORTCUTS
 
-",l"   - Toggle "show whitespace"
-",n"   - Toggle between line numbering and ruler
-",p"   - Toggle paste mode
+"_l"   - Toggle "show whitespace"
+"_n"   - Toggle between line numbering and ruler
+"_p"   - Toggle paste mode
 "gqip" - Reformat a paragraph with the commandline tool 'par' (needs to be installed)
+"_="   - Auto indent whole file
+"_$"   - Strip all trailing whitespaces
 
 "Ctrl-e" - Scroll three lines to the top
 "Ctrl-y" - Scroll three lines to the bottom
+":Stab" - Interactively set tab width
