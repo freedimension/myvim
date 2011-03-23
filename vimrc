@@ -8,8 +8,7 @@ let mapleader=","
 " Whitespace display Toggling with LEADER+l 
 nmap <leader>l :set list!<CR>
 " Display characters for TAB and NL in list-mode
-set listchars=tab:>\	,eol:v
-
+set listchars=tab:▸\ ,eol:¬,trail:.
 
 set ignorecase          " Smart case searching on upper characters only
 set smartcase           "                   - " -
@@ -23,6 +22,9 @@ set ruler             " show cursor position ...
 set nonumber              " ... but not the line number gutter
 " Toggling between line numbering modes with LEADER+n
 nmap <leader>n :set ruler! number!<CR>
+
+nmap <leader>p :set paste!<CR>
+
 syntax on               " syntax highlighting
 set hlsearch            " highlight the last searched term
 set incsearch           " incremental highlighting (highlight on type)
@@ -54,3 +56,31 @@ if has("autocmd")
   \ endif |
   \ endif
 endif
+
+" Set tabstop, softtabstop and shiftwidth to the same value
+command! -nargs=* Stab call Stab()
+function! Stab()
+  let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
+  if l:tabstop > 0
+    let &l:sts = l:tabstop
+    let &l:ts = l:tabstop
+    let &l:sw = l:tabstop
+  endif
+  call SummarizeTabs()
+endfunction
+ 
+function! SummarizeTabs()
+  try
+    echohl ModeMsg
+    echon 'tabstop='.&l:ts
+    echon ' shiftwidth='.&l:sw
+    echon ' softtabstop='.&l:sts
+    if &l:et
+      echon ' expandtab'
+    else
+      echon ' noexpandtab'
+    endif
+  finally
+    echohl None
+  endtry
+endfunction
