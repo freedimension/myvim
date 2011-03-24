@@ -1,9 +1,18 @@
-" Pathogen for bundling vim plugins
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
 " Set Leader character to comma
 let mapleader="_"
+
+"""""""""""""""""""
+" PLUGIN HANDLING "
+" =============== "
+"""""""""""""""""""
+
+call pathogen#runtime_append_all_bundles() " Pathogen for bundling vim plugins
+call pathogen#helptags()                   " has to be up here
+
+"""""""""""""""""""""""
+" WHITESPACE HANDLING "
+" =================== "
+"""""""""""""""""""""""
 
 " Whitespace display Toggling with LEADER+l 
 nmap <leader>l :set list!<CR>
@@ -11,36 +20,48 @@ nmap <leader>l :set list!<CR>
 " Display characters for TAB and NL in list-mode
 set listchars=tab:▸\ ,eol:¬,trail:.
 
+"""""""""""""
+" SEARCHING "
+" ========= "
+"""""""""""""
 set ignorecase          " Smart case searching on upper characters only
 set smartcase           "                   - " -
+set hlsearch
+set incsearch
+set wildmode=list:longest " extended wildcard selection
+runtime macros/matchit.vim " enable extended matching
 
+"""""""""""""""""""""
+" BUFFERS / WINDOWS "
+" ================= "
+"""""""""""""""""""""
 set hidden              " use hidden buffers
 set ai                  " auto indenting
 set history=1000        " keep some more lines of history
 set title               " show filename in title
 
-set ruler             " show cursor position ...
-set nonumber              " ... but not the line number gutter
+""""""""""""""""""
+" LINE NUMBERING "
+" ============== "
+""""""""""""""""""
+set ruler               " show cursor position ...
+set nonumber            " ... but not the line number gutter
 " Toggling between line numbering modes with LEADER+n
 nmap <leader>n :set ruler! number!<CR>
+
 
 nmap <leader>p :set paste!<CR>
 
 " Syntax and search highlighting
 syntax on
-set hlsearch
-set incsearch
 
-" Search behaviour
-set wildmode=list:longest " extended wildcard selection
 set scrolloff=3         " helps keeping some context around the caret
 
 " moving swap file to dedicated directory
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
-" enable extended matching
-runtime macros/matchit.vim
+
 
 " Speeding up scrolling with Ctrl-e and Ctrl-y
 nnoremap <C-e> 3<C-e>
