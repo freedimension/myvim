@@ -67,6 +67,8 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
+autocmd FileType php,javascript match errorMsg /[^\t]\zs\t\+/
+
 if executable("par")
   set formatprg=par\ -w78
 endif
@@ -93,7 +95,7 @@ function! Stab()
   endif
   call SummarizeTabs()
 endfunction
- 
+
 function! SummarizeTabs()
   try
     echohl ModeMsg
