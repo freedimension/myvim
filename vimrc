@@ -1,4 +1,6 @@
-" Set Leader character to comma
+let php_folding=1
+
+" Set Leader character to underscore
 let mapleader="_"
 
 """""""""""""""""""
@@ -67,7 +69,9 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
-autocmd FileType php,javascript match errorMsg /[^\t]\zs\t\+/
+autocmd FileType php,javascript highlight whitespaceError ctermbg=red ctermfg=yellow term=bold
+autocmd FileType php,javascript match whitespaceError /[^\t]\zs\t\+/
+autocmd FileType php,javascript 2match whitespaceError /\(foreach\|for\|if\|while\|switch\|\(function [a-zA-Z0-9_]\+\)\)(/
 
 if executable("par")
   set formatprg=par\ -w78
